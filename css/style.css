@@ -1,0 +1,340 @@
+/* Réinitialisation des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 18px;
+    /*autre styles*/
+    box-shadow: 10px 0 20px rgba(227, 227, 227, 0.7), -10px 0 20px rgba(227, 227, 227, 0.7);
+}
+
+/* Conteneur principal */
+.container {
+    width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.header {
+    background-color: rgb(23,171, 179);
+    color: white;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ccc;
+}
+
+.photo-container {
+    flex: 0 0 150px;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.photo-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: zoom-in;/* Ajuste le curseur de zoom*/
+}
+
+.header-content {
+    display: flex;
+    flex: column;
+    align-items: center; /* Aligne le contenue horizontalement */
+    flex: 1;
+    padding-left: 20px;
+    justify-content: center;
+}
+
+.header-content h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* contact*/
+.contact {
+    margin-top: 20px;
+}
+
+.contact ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permet le passage de la ligne*/
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;/* espace entre les lignes de contact*/
+    width: calc(50% - 10px);/* Ajuste pour que les 2 éléments s'affichent sur la même ligne avec un petit espaces Si je souhaite plus d'espace entre les deux colonnes, ajuste le -10px*/
+}
+
+.contact-row i {
+    margin-right: 8px;/* espacement entre l'icône et le texte*/
+}
+
+/* creer un conteneur pour les 2 lignes */
+.contact-row:nth-child(1),
+.contact-row:nth-child(2) {
+    display: inline-block;/* Aligne les 2 premiers éléments*/
+    width: 48%; /* Ajuste cette largeur pour votre besoin, garder un peiti espace entre les colonnes */
+}
+
+.contact-row:nth-child(3),
+.contact-row:nth-child(4) {
+    display: inline-block; /* Aligne les deux derniers éléments */
+    width: 48%; /* Ajuste cette largeur pour garder un petit espace entre les colonnes*/
+}
+.contact h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    margin-bottom: 5px;
+}
+.contact a:hover {
+    color: rgb(23,171, 179);
+    text-decoration: underline;
+}
+
+.formations ul li,
+.experience ul li {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.formations ul li em,
+.experience ul li em {
+    color: rgb(23,171, 179);
+    margin-left: 50px;
+}
+
+.formation ul li span,
+.experience ul li span {
+    font-style: italic; /*Applique le style italic sur span*/
+    overflow-wrap: break-word; /* Permet de couper les mots longs pour passer à la ligne*/
+}
+
+.element-survol {
+    position: relative;
+    padding-left: 20px;
+    transition: background-color 0.3s ease;/* Transition pour le changement de couleur de fond*/
+}
+
+.element-survol:hover {
+    background-color: rgba(23, 171, 179, 0.2);
+}
+
+.element-survol::before {
+    background-color: rgb(23,171, 179);/* couleur du trait aux survol*/
+}
+
+/* Content*/
+.content {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 350px;
+    background-color: rgba(227, 227, 227, 0.3);
+    padding: 15px;
+    flex-shrink: 0;/* Assure que le sidebar nen retrecisse pas*/
+    font-size: 16px;
+}
+
+.sidebar h2 {
+    font-size: 2em;/* 1.5 fois la tailles de police de base*/
+    margin-bottom: 10px;
+}
+
+.sidebar h3 {
+    font-size: 1.6em;/* 1.2 fois la taille de police de base*/
+    margin-bottom: 5px;
+}
+
+.sidebar ul.puces {
+    text-align: left;
+    font-size: 1.1em; /*taille de police de base*/
+}
+
+.sidebar ul.puces li {
+    font-size: 1.1em;/*legerement plus petit que la taille de polce de base*/
+}
+/* Ajustement de ms etoiles*/
+.etoile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.etoile h3 {
+     margin-right: 5px;
+}
+
+.etoile ul {
+    list-style: none;
+    display: flex;
+    color: rgb(23,171, 179);
+    padding-left: 0;
+}
+
+.etoile ul li {
+    margin-right: 2px;
+}
+
+.star-icon {
+    font-size: 1em;/* Ajuste la taille dees etoiles*/
+}
+
+.languages {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espaces entre les éléments de langue*/
+    font-size: 1.5em;
+}
+
+.languages li {
+    list-style: none;
+    font-size: 1.5em;
+
+}
+.languages, .speak {
+    margin-left: 150px;
+}
+
+.puces {
+    list-style: none; /* Supprime les puces par défaut */
+    padding-left: 0; /* Supprime le padding par défaut */
+}
+
+.puces li {
+    position: relative; /* Nécessaire pour positionner les carrés */
+    padding-left: 35px; /* Ajoute de l'espace pour le carré */
+    margin-bottom: 10px; /* Espace entre les éléments de la liste */
+}
+
+.puces li::before {
+    content: ''; /* Nécessaire pour créer le carré */
+    position: absolute; /* Positionnement absolu par rapport à l'élément parent */
+    left: 10px; /* Alignement à gauche */
+    top: 50%; /* Centre verticalement par rapport au texte */
+    transform: translateY(-50%); /* Ajuste le positionnement vertical */
+    width: 10px; /* Largeur du carré */
+    height: 10px; /* Hauteur du carré */
+    background-color: rgb(23,171, 179); /* Couleur du carré */
+    border-radius: 2px; /* Légèrement arrondi pour un effet plus doux, facultatif */
+}
+
+
+/* Main content */
+.main-content {
+    min-width:70%;
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    overflow-wrap: break-word;/* permeet de couper pour passer à la ligne*/
+}
+
+.main-content h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    text-indent: 20px;
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.main-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.main-content ul li {
+    margin-bottom: 10px;
+}
+
+.main-content, .profil, .formation, .experience {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.experience {
+    text-align: right; /* Aligne le texte tout a droite */
+}
+
+.experience ul {
+    list-style: none;
+    padding-left: 0;
+}
+.experience li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.social i {
+    transition: opacity 0.3s ease;/* Transition pour l'opacité*/
+}
+
+.social i:hover {
+    opacity: 0.7;/* Réduction de l'opacité au survol */
+}
+
+/* Footer */
+footer {
+    width: 1160px;/* la meme largeur que le header*/
+    background-color: rgb(23,171, 179);
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+footer .social {
+    margin-bottom: 10px;
+}
+
+footer .social i {
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: white;
+}
+
+footer .date {
+    font-size: 0.9em;
+    color: white;
+}
+h2 {
+    color: rgb(23,171, 179);
+}
+h4 {
+    font-size: 1.3em;
+}
