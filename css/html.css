@@ -16,33 +16,10 @@
 body {
     font-family: 'Raleway', sans-serif;
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     color: #333333;
     font-size: 18px;
-    padding: 10px;
-    position: relative;
-    min-height: 100vh;/*pour que le body occupe toute la page*/
-}
-
-body::before,
-body::after {
-    content: "";
-    position: fixed;/* Utilisation de fixed pour que l'ombre reste en place lors du lors du defilement*/
-    top: 0;
-    width: 150px;
-    height: 100vh;/* Hauteur de l'ombre*/
-    background-color: rgba(245, 245, 245, 0.2);
-    z-index: -1;/* place l'ombre derriere le contenue du body*/
-}
-
-body::before {
-    left: 0;
-    box-shadow: 455px 0 20px rgba(227, 227, 227, 0.5);
-}
-
-body::after {
-    right: 100px;
-    box-shadow: -330px 0 20px rgba(227, 227, 227, 0.5);
+    box-shadow: 10px 0 20px rgba(227, 227, 227, 0.7), -10px 0 20px rgba(227, 227, 227, 0.7);
 }
 
 .container {
@@ -52,8 +29,6 @@ body::after {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    position: relative;
-    z-index: 1;
 }
 
 h2 {
@@ -77,7 +52,6 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid #f5f5f5;
-    margin-bottom: 20px;
 }
 
 .photo-container {
@@ -205,25 +179,13 @@ header {
     align-items: stretch;
 }
 
-.content-wrapper {
-    display: flex; /* Utilise Flexbox pour la mise en page */
-    justify-content: space-between; /* Espace entre le profil et le sidebar */
-}
-
-.main-content,
-.sidebar {
-    /* ... tes autres styles ... */
-    height: 100%; /* Assure la même hauteur pour les deux éléments */
-    align-items: stretch;
-}
-
 /* -------------------------------------------------------------------------- */
 /* Sidebar                                  */
 /* -------------------------------------------------------------------------- */
 
 .sidebar {
     width: 30%;
-    background-color: rgba(227, 227, 227, 0.5);
+    background-color: rgba(227, 227, 227, 0.3);
     padding: 20px;
     flex-shrink: 0;
     font-size: 16px;
