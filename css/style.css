@@ -196,6 +196,7 @@ header {
     align-items: stretch;
     min-height: 100vh;
 }
+
 .main-content,
 .sidebar {
     /* ... tes autres styles ... */
@@ -208,7 +209,7 @@ header {
 /* -------------------------------------------------------------------------- */
 
 .sidebar {
-    width: 30%;
+    width: 28%;
     background-color: rgba(227, 227, 227, 0.5);
     padding: 30px;
     flex-shrink: 0;
@@ -342,13 +343,13 @@ header {
 /* -------------------------------------------------------------------------- */
 
 .main-content {
-    min-width: 70%;
+    min-width: 60%;
     flex: 1;
     background-color: #ffffff;
-    padding: 0;
+    padding: 5px;
     overflow-wrap: break-word;
     flex-grow: 1;
-    margin-left: 20px;
+    margin-left: 20px
 }
 
 .main-content h2,
