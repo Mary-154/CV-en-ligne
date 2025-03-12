@@ -29,6 +29,12 @@
     box-sizing: border-box;
 }
 
+/* Assurez-vous que le body et le html occupent toute la page */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
 body {
     font-family: 'Raleway', sans-serif;
     line-height: 1.6;
@@ -47,18 +53,18 @@ body::after {
     top: 0;
     width: 150px;
     height: 100vh;/* Hauteur de l'ombre*/
-    background-color: rgba(245, 245, 245, 0.3);
+    background-color: rgba(245, 245, 245, 0.2);
     z-index: -1;/* place l'ombre derriere le contenue du body*/
 }
 
 body::before {
     left: 0;
-    box-shadow: 285px 0 20px rgba(227, 227, 227, 0.6);
+    box-shadow: 285px 0 20px rgba(227, 227, 227, 0.5);
 }
 
 body::after {
     right: 100px;
-    box-shadow: -175px 0 20px rgb(227, 227, 227, 0.6);
+    box-shadow: -200px 0 20px rgb(227, 227, 227, 0.5);
 }
 
 .container {
@@ -339,15 +345,15 @@ header {
     min-width: 70%;
     flex: 1;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 0;
     overflow-wrap: break-word;
     flex-grow: 1;
+    margin-left: 20px;
 }
 
 .main-content h2,
 .formation h2,
 .experience h2 {
-    font-size: 2em;
     margin-bottom: 10px;
     width: 100%;
 }
@@ -562,7 +568,7 @@ h2::after {
 /* -------------------------------------------------------------------------- */
 
 footer {
-    width: 1160px;
+    width: 100%;
     background-color: rgb(23, 171, 179);
     padding: 20px;
     text-align: center;
