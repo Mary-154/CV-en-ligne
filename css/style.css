@@ -1,4 +1,25 @@
 /* -------------------------------------------------------------------------- */
+/* types d'ecriture                               */
+/* -------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Regular.woff2') format('woff2'),
+         url('../fonts/Raleway-Regular.woff') format('woff'),
+         url('../fonts/Raleway-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Bold.woff2') format('woff2'),
+         url('../fonts/Raleway-Bold.woff') format('woff'),
+         url('../fonts/Raleway-Bold.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Réinitialisation des marges et des paddings                               */
 /* -------------------------------------------------------------------------- */
 
@@ -14,9 +35,9 @@ body {
     background-color: #ffffff;
     color: #333333;
     font-size: 18px;
-    padding: 10px;
+    padding: 0;
     position: relative;
-    min-height: 100vh;/*pour que le body occupe toute la page*/
+    height: 100vh;/*pour que le body occupe toute la page*/
 }
 
 body::before,
@@ -26,37 +47,35 @@ body::after {
     top: 0;
     width: 150px;
     height: 100vh;/* Hauteur de l'ombre*/
-    background-color: rgba(245, 245, 245, 0.2);
+    background-color: rgba(245, 245, 245, 0.3);
     z-index: -1;/* place l'ombre derriere le contenue du body*/
 }
 
 body::before {
     left: 0;
-    box-shadow: 455px 0 20px rgba(227, 227, 227, 0.5);
+    box-shadow: 285px 0 20px rgba(227, 227, 227, 0.6);
 }
 
 body::after {
     right: 100px;
-    box-shadow: -330px 0 20px rgba(227, 227, 227, 0.5);
+    box-shadow: -175px 0 20px rgb(227, 227, 227, 0.6);
 }
 
 .container {
-    width: 1160px;
+    max-width: 1160px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     z-index: 1;
 }
 
-h2 {
-    color: rgb(23, 171, 179);
-}
+
 
 h4 {
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -67,7 +86,7 @@ header {
     background-color: rgb(23, 171, 179);
     color: white;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -87,7 +106,7 @@ header {
     height: 150px;
     border-radius: 50%;
     border: 5px solid #ffffff;
-    box-shadow: 0 4px 8px rgba(51, 51, 51, 0.1);
+    box-shadow: 0 4px 8px rgba(51, 51, 51, 0.3);
     cursor: zoom-in;
 }
 
@@ -159,36 +178,6 @@ header {
     text-decoration: underline;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Expérience et Formations                  */
-/* -------------------------------------------------------------------------- */
-
-.experience ul,
-.formations ul {
-    text-align: left;
-    list-style: none;
-    padding-left: 0;
-}
-
-.experience ul li,
-.formations ul li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.experience ul li em {
-    color: rgb(23, 171, 179);
-    margin-left: 200px;
-}
-
-.formations ul li {
-    justify-content: space-between;
-}
-
-.formations ul li em {
-    margin-left: 400px;
-}
 
 /* -------------------------------------------------------------------------- */
 /* Content (Sidebar et Main Content)          */
@@ -196,19 +185,15 @@ header {
 
 .content {
     display: flex;
+    flex-direction: row;
     width: 100%;
     align-items: stretch;
+    min-height: 100vh;
 }
-
-.content-wrapper {
-    display: flex; /* Utilise Flexbox pour la mise en page */
-    justify-content: space-between; /* Espace entre le profil et le sidebar */
-}
-
 .main-content,
 .sidebar {
     /* ... tes autres styles ... */
-    height: 100%; /* Assure la même hauteur pour les deux éléments */
+    flex-grow: 1;
     align-items: stretch;
 }
 
@@ -219,35 +204,41 @@ header {
 .sidebar {
     width: 30%;
     background-color: rgba(227, 227, 227, 0.5);
-    padding: 20px;
+    padding: 30px;
     flex-shrink: 0;
     font-size: 16px;
 }
 
-.sidebar h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+/* Ajouter des marges aux sections de la sidebar */
+.sidebar section,
+.sidebar .Languages,
+.sidebar .separateur-dessous {
+    margin-bottom: 20px; /* Ajoutez de la marge pour espacer les sections */
 }
 
-.sidebar h3 {
-    font-size: 1.6em;
-    margin-bottom: 5px;
+/* Ajuster les listes de la sidebar */
+.sidebar ul {
+    list-style: none;
+    padding-left: 0; /* Assurez-vous que les listes sont alignées à gauche */
+    margin-left: 0; /* Assurez-vous que les listes sont alignées à gauche */
 }
 
 .sidebar ul.puces {
     text-align: left;
-    font-size: 1.1em;
 }
 
-.sidebar ul.puces li {
-    font-size: 1.1em;
-}
-
-.sidebar section,
-.sidebar ul,
+/* Ajuster les titres des sections de la sidebar */
 .sidebar h2,
-.sidebar h3 {
-    margin-bottom: 25px;
+.sidebar h3,
+.sidebar h4 {
+    margin-left: 0; /* Assurez-vous que les titres sont alignés à gauche */
+    padding-left: 0; /* Assurez-vous que les titres sont alignés à gauche */
+}
+
+/* Ajuster les éléments de la liste de la sidebar */
+.sidebar ul li {
+    margin-left: 0; /* Assurez-vous que les éléments de la liste sont alignés à gauche */
+    padding-left: 0; /* Assurez-vous que les éléments de la liste sont alignés à gauche */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -262,7 +253,7 @@ header {
 }
 
 .etoile h3 {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .etoile ul {
@@ -270,16 +261,18 @@ header {
     display: flex;
     color: rgb(23, 171, 179);
     padding-left: 0;
+    gap: 5px;
 }
 
 .etoile ul li {
+    display: inline-block;
     margin-right: 2px;
 }
 
-.star-icon {
-    font-size: 1em;
+.etoile h4 {
+    font-weight: bold;
+    margin-right: auto;
 }
-
 
 /* -------------------------------------------------------------------------- */
 /* Langue                               */
@@ -287,10 +280,9 @@ header {
 
 .language {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin-bottom: 10px;
-    font-size: 1.6em;
+    margin-bottom: 20px;
     font-weight: bold;
 }
 
@@ -300,36 +292,37 @@ header {
 }
 
 .language li {
-    font-size: 1.5em;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.language,
 .speak {
-    font-size: 1.2em;
-    margin-left: 20px;
+    margin-left: 150px; /* Pousse l'élément speak vers la droite */
+    font-size: 1em;
     font-weight: normal;
     color: #333333;
 }
 
-/* Puces */
-.puces {
+/* -------------------------------------------------------------------------- */
+/* Puces                               */
+/* -------------------------------------------------------------------------- */
+
+.sidebar .puces {
     list-style: none;
     padding-left: 0;
 }
 
-.puces li {
+.sidebar .puces li {
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 10px;
+    padding-left: 20px;/* espaces entre les elements de la liste*/
+    margin-bottom: 10px;/* marge entre les puces et le texte*/
 }
 
-.puces li::before {
+.sidebar .puces li::before {
     content: '';
     position: absolute;
-    left: 10px;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 10px;
@@ -348,11 +341,15 @@ header {
     background-color: #ffffff;
     padding: 20px;
     overflow-wrap: break-word;
+    flex-grow: 1;
 }
 
-.main-content h2 {
+.main-content h2,
+.formation h2,
+.experience h2 {
     font-size: 2em;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .main-content p {
@@ -380,11 +377,13 @@ header {
     align-items: flex-start;
 }
 
+.formation ul,
 .experience ul {
     list-style: none;
     padding-left: 0;
 }
 
+.formation li,
 .experience li {
     display: flex;
     justify-content: space-between;
@@ -392,6 +391,10 @@ header {
     margin-bottom: 10px;
 }
 
+.formation,
+.experience {
+    width: 100%;
+}
 
 /* -------------------------------------------------------------------------- */
 /* special etoile                               */
@@ -405,36 +408,129 @@ header {
     opacity: 0.7;
 }
 
+/* -------------------------------------------------------------------------- */
+/* Expérience et Formations                  */
+/* -------------------------------------------------------------------------- */
+
+.experience ul,
+.formation ul {
+    text-align: left;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.experience ul li {
+    position: relative; /* Nécessaire pour le positionnement des éléments enfants */
+    transition: background-color 0.3s ease;
+    padding-left: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex; /* Garde le li en mode flex pour aligner le texte et la date */
+    justify-content: space-between; /* Espace entre le texte et la date */
+    align-items: flex-start; /* Assure que les éléments sont alignés verticalement */
+    width: 100%; /* Assure que l'élément prend toute la largeur */
+    margin-bottom: 6px; /* Espacement entre les éléments */
+}
+
+.formation ul li {
+    position: relative; /* Nécessaire pour le positionnement des éléments enfants */
+    transition: background-color 0.3s ease;
+    padding-left: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex; /* Garde le li en mode flex pour aligner le texte et la date */
+    flex-direction: column;
+    justify-content: space-between; /* Espace entre le texte et la date */
+    align-items: flex-start; /* Assure que les éléments sont alignés verticalement */
+    width: 100%; /* Assure que l'élément prend toute la largeur */
+    margin-bottom: 0; /* Espacement entre les éléments */
+}
+
+.formation ul li span {
+    display: block; /* Force le span à être un bloc, le plaçant sur une nouvelle ligne */
+    text-align: left; /* Assure que le texte du span est aligné à gauche */
+    margin-top: 5px; /* Espace au-dessus du span */
+    width: 100%;
+}
 
 /* -------------------------------------------------------------------------- */
 /* Séparateur en dessous des titres                               */
 /* -------------------------------------------------------------------------- */
 
-.separateur-dessous {
+h2 {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px; /* Ajout d'un espacement sous le titre */
+    color: rgb(23, 171, 179);
 }
 
-.separateur-dessous::after {
+h2::after {
     content: "";
-    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; /* Positionnement en bas de l'élément */
     width: 100%;
-    height: 1px;
-    border-bottom: 1px solid #e3e3e3;
-    margin-top: 10px;
+    height: 2px;
+    border-bottom: 3px solid #e3e3e3;
+}
+
+.experience h2,
+.formation h2 {
+    position: relative;
+    padding-bottom: 5px;/* hauteur de la barre de separation par le haut*/
+    margin-bottom: 10px;/* hauteur de la barre de separation par le bas*/
+}
+
+.experience h2::after,
+.formation h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-bottom: 3px solid #e3e3e3;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Effet de survol sur les expériences et formations                               */
+/* style spécifique pour les dates                                                                          */
+/* -------------------------------------------------------------------------- */
+
+.formation ul li .date {
+    align-self: center;
+    text-align: right; /* Aligner le texte à droite */
+    margin-left: 5px; /* Permet de pousser la date à droite */
+    padding-left: 10px; /* Ajouter un espacement à gauche pour éviter que la date soit trop proche du texte principal */
+    width: 83vh; /* Changez la largeur pour qu'elle s'adapte au contenu */
+    flex-shrink: 1; /* Empêche le rétrécissement de l'élément date */
+    color: rgb(23, 171, 179);
+} 
+
+.experience ul li .date {
+    align-self: flex-end;
+    text-align: right; /* Aligner le texte à droite */
+    margin-left: auto; /* Permet de pousser la date à droite */
+    padding-left: 80px; /* Ajouter un espacement à gauche pour éviter que la date soit trop proche du texte principal */
+    width: auto; /* Changez la largeur pour qu'elle s'adapte au contenu */
+    flex-shrink: 0; /* Empêche le rétrécissement de l'élément date */
+    color: rgb(23, 171, 179);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Effet de survol sur les expériences et formation                               */
 /* -------------------------------------------------------------------------- */
 
 .experience-item,
 .formation-item {
-    position: relative;
+    display: flex; /* Utiliser flex pour aligner le texte et la date sur la même ligne */
+    justify-content: space-between; /* Espace entre le texte et la date */
+    align-items: center; /* Aligne verticalement */
+    padding: 10px 20px; /* Gardez une marge uniforme */
     transition: background-color 0.3s ease;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    z-index: 1;
+    width: 100%;
+    position: relative;
 }
 
 .experience-item::before,
@@ -443,7 +539,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    width: 5px;
+    width: 5px;/* largeur de la barrette bleu cote de mon effet aux survol*/
     height: 100%;
     background-color: rgb(23, 171, 179);
     opacity: 0;
@@ -453,7 +549,7 @@ header {
 
 .experience-item:hover,
 .formation-item:hover {
-    background-color: rgba(227, 227, 227, 0.6);
+    background-color: rgba(227, 227, 227, 0.7);
 }
 
 .experience-item:hover::before,
@@ -483,7 +579,7 @@ footer .social i {
     color: #ffffff;
 }
 
-footer .date {
+footer p .date {
     font-size: 0.9em;
     color: #ffffff;
 }
