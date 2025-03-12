@@ -78,8 +78,6 @@ body::after {
     z-index: 1;
 }
 
-
-
 h4 {
     font-size: 1.1em;
 }
@@ -88,7 +86,7 @@ h4 {
 /* Header                                   */
 /* -------------------------------------------------------------------------- */
 
-header {
+header  {
     background-color: rgb(23, 171, 179);
     color: white;
     width: 100%;
@@ -346,17 +344,17 @@ header {
     min-width: 60%;
     flex: 1;
     background-color: #ffffff;
-    padding: 5px;
+    padding: 8px;
     overflow-wrap: break-word;
     flex-grow: 1;
-    margin-left: 20px
+    margin-left: 20px;
 }
 
 .main-content h2,
 .formation h2,
 .experience h2 {
-    margin-bottom: 10px;
-    width: 100%;
+    margin-bottom: 10px 0;
+    width: auto;
 }
 
 .main-content p {
@@ -569,11 +567,17 @@ h2::after {
 /* -------------------------------------------------------------------------- */
 
 footer {
-    width: 100%;
+    max-width: 1160px;
+    width: 100%; /* Ajustez la largeur à 100% */
     background-color: rgb(23, 171, 179);
     padding: 20px;
     text-align: center;
     margin: 0 auto;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box; /* Assurez-vous que le padding est inclus dans la largeur */
 }
 
 footer .social {
